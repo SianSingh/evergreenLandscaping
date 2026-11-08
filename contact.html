@@ -4,135 +4,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
+
+    <title>Contact Us | Evergreen Landscaping Durban</title>
+
     <link rel="stylesheet" href="css_assets/styles.css">
+    <meta name="description"
+        content="Contact Evergreen Landscaping in Durban by phone, email or message form, and find our head office and depots on the interactive map.">
+    <meta name="keywords"
+        content="contact landscaper, Evergreen Landscaping contact, landscaping Durban North, Umhlanga, Pinetown">
+    <meta name="author" content="Evergreen Landscaping">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+    <link rel="icon" href="_images/logo2.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js" defer></script>
+    <script src="js_assets/scripts.js" defer></script>
+    <script
+        type="application/ld+json">{"@context":"https://schema.org","@type":"LandscapingBusiness","name":"Evergreen Landscaping","telephone":"+27123456789","email":"info@evergreenlandscaping.co.za","address":{"@type":"PostalAddress","streetAddress":"123 Greenway Avenue","addressLocality":"Durban","addressRegion":"KwaZulu-Natal","addressCountry":"ZA"}}</script>
+
 </head>
 
-<header>
-    <div id="navigation">
-        <table>
-            <tr>
-                <td>
-                    <img src="_images/logo2.png" style="vertical-align: middle; width: 100px; 
-                height: 100px; border-radius: 80%;">
-                </td>
-                <td>
-                    <h1 style="font-size: x-large;">Evergreen Landscaping</h1>
-                </td>
-                <td>
-                    <nav style="font-size: medium;">
-                        <a href="index.html">Home</a></li>
-                        <a href="about.html">About Us</a></li>
-                        <a href="services.html">Services</a></li>
-                        <a href="projects.html">Projects</a></li>
-                        <a href="quote.html">Quotation</a></li>
-                        <a href="contact.html">Contact Us</a></li>
-                    </nav>
-                </td>
-            </tr>
-        </table>
-    </div>
-</header>
-
 <body>
- 
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+        <div class="brand">
+            <img src="_images/logo2.png" alt="Evergreen Landscaping Logo">
+            <p class="site-name">Evergreen Landscaping</p>
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="projects.html">Projects</a>
+            <a href="quote.html">Get a Quote</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </header>
 
 
+    <!-- ================= MAIN CONTENT ================= -->
 
-    <h1>Contact Evergreen Landscapi</h1>
+    <main class="page-container">
 
-    <h2>Let's Talk About Your Next Project</h2>
+        <section>
 
-    <p>Have a question, need a garden maintenance, or ready
-        to transform your outdoor space?<br><br>Our team would love to
-        hear from you. Contact Evergreen Landscaping today to discuss your landscaping needs
-        or request a personalised quote.</p>
+            <h1>Get In Touch</h1>
 
-    <h2>Get In Touch</h2>
+            <p>
+                Have a question or would like to discuss your landscaping
+                project? Send us a message and we will get back to you.
+            </p>
 
-    <table>
-        <tr>
-            <td>
-                <form action="mailto.siansingh246@gmail.com" method="post">
-                    <h3>Send Us a Message</h3>
-                    <p>Please complete the contact form below and a member of our team will get back to you</p>
+        </section>
 
-                    <label for="name">Full Name:</label>
-                    <input type="text" id="name" name="name" required> <br>
 
-                    <label for="email">Email Address:</label>
-                    <input type="email" id="email" name="email" required> <br>
+        <!-- ================= CONTACT GRID ================= -->
 
-                    <label for="phone">Phone Number:</label>
-                    <input type="tel" id="phone" name="phone" required> <br>
+        <section class="contact-grid">
 
-                    <label for="service">Service Required:<br>Select a service</label>
-                    <input type="text" id="service" name="service" required> <br>
+            <!-- CONTACT FORM -->
 
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" rows="4" required></textarea><br>
+            <div class="contact-form">
 
-                    <input type="submit" value="Submit">
-
+                <form id="contact-form" novalidate>
+                    <h2>Send Us a Message</h2>
+                    <p>Complete the form below. We will prepare an email for you to send to our team.</p>
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" data-check="name" autocomplete="name"><span class="error"
+                        id="name-error"></span>
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" data-check="email" autocomplete="email"><span class="error"
+                        id="email-error"></span>
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" data-check="phone" autocomplete="tel"><span class="error"
+                        id="phone-error"></span>
+                    <label for="topic">Type of Message</label>
+                    <select id="topic" data-check="service">
+                        <option value="">Choose a type</option>
+                        <option>General question</option>
+                        <option>Compliment</option>
+                        <option>Complaint</option>
+                        <option>Partnership</option>
+                    </select><span class="error" id="topic-error"></span>
+                    <label for="message">Message (10-500 characters)</label>
+                    <textarea id="message" data-check="message" rows="5"></textarea><span class="error"
+                        id="message-error"></span>
+                    <input type="submit" value="Prepare Email">
                 </form>
+                <div id="contact-result" class="result" hidden aria-live="polite"></div>
+
+            </div>
 
 
-            </td>
+            <!-- GOOGLE MAP -->
 
-            <td>
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3462.338673245236!2d31.03111168885496!3d-29.796758599999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ef707aa871594bd%3A0x8f02f03f86d820cd!2sEmeris%20-%20Durban%20North%20Campus!5e0!3m2!1sen!2sza!4v1786627524574!5m2!1sen!2sza"
-                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="strict-origin-when-cross-origin"></iframe>
-            </td>
-        </tr>
-    </table>
-    
-    <div id="contact_details" style="background-color: beige; color: rgb(0, 0, 0); text-align: center;
-    border-radius: 5%;">
-    <h4>Phone:</h4>
-    <p>012 345 6789</p>
-    <H4>Email:</H4>
-    <p>info@evergreenlandscaping.co.za</p>
-    <h4>Address: </h4>
-    <p>123 Greenway Avenue, Durban, KwaZulu Natal, South Africa </p>
-    <h4>Business Hours:</h4>
-    <p>Monday - Friday: 08:00 - 17:00<br>Saturday: 08:00 - 13:00<br>Sunday: Closed</p>
-    </div>
+            <div class="contact-map">
 
-    <h4>Send Us a Message</h4>
+                <div id="map" role="region" aria-label="Map of Evergreen Landscaping locations"></div>
+                <noscript>
+                    <p>Head office: 123 Greenway Avenue, Durban North.</p>
+                </noscript>
 
-    <p>Please complete the contract form below and a member of
-        out team will ger back to you.</p>
+            </div>
 
-    <h4>Full Name</h4>
+        </section>
 
-    <p>Enter your name</p>
 
-    <h4>Email Address</h4>
+        <!-- ================= CONTACT DETAILS ================= -->
 
-    <p>Enter your email address</p>
+        <section class="contact-details">
 
-    <h4>Phone Number</h4>
+            <h2>Contact Details</h2>
 
-    <p>Enter your phone number </p>
+            <div class="contact-details-grid">
 
-    <h4>Services Required</h4>
+                <div>
+                    <h4>Phone</h4>
+                    <p>012 345 6789</p>
+                </div>
 
-    <p>Select a service</p>
+                <div>
+                    <h4>Email</h4>
+                    <p>info@evergreenlandscaping.co.za</p>
+                </div>
 
-    <h4>Message</h4>
+                <div>
+                    <h4>Address</h4>
+                    <p>
+                        123 Greenway Avenue, Durban,
+                        KwaZulu Natal, South Africa
+                    </p>
+                </div>
 
-    <p>Tell us about your landscaping project</p>
+                <div>
+                    <h4>Business Hours</h4>
+                    <p>
+                        Monday - Friday: 08:00 - 17:00<br>
+                        Saturday: 08:00 - 13:00<br>
+                        Sunday: Closed
+                    </p>
+                </div>
 
-    <h4>[Submit Enquiry]</h4>
+            </div>
 
-    <h3>Follow Us</h3>
+        </section>
 
-    <p>Stay connected with Evergreen Landscaping and follow us on
-        social media for landscaping inspiration, garden tips, and updates
-        on our latest projects.</p>
+    </main>
 
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+        <p>Evergreen Landscaping &copy; <span id="year">2026</span></p>
+    </footer>
 
 </body>
 
